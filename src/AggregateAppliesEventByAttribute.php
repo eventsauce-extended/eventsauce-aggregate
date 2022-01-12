@@ -21,12 +21,12 @@ trait AggregateAppliesEventByAttribute
                 continue;
             }
             if (1 !== $method->getNumberOfRequiredParameters()) {
-                throw new InvalidArgumentException('Event sourcing handler method require one argument type of event.');
+                throw new InvalidArgumentException('Event sourcing handler method requires an one argument.');
             }
 
             $parameter = $method->getParameters()[0];
             if (null === $parameter->getType()) {
-                throw new InvalidArgumentException('Event sourcing handler method require argument type of event.');
+                throw new InvalidArgumentException('Event sourcing handler method requires an argument with event type.');
             }
 
             if ($event::class === $parameter->getType()->getName()) {

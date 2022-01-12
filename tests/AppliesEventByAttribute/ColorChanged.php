@@ -7,29 +7,29 @@ namespace Tests\AppliesEventByAttribute;
 
 use EventSauce\EventSourcing\Serialization\SerializablePayload;
 
-final class AggregateNumberIncremented implements SerializablePayload
+final class ColorChanged implements SerializablePayload
 {
-    private int $number;
+    private string $color;
 
-    public function __construct(int $number)
+    public function __construct(string $color)
     {
-        $this->number = $number;
+        $this->color = $color;
     }
 
-    public function getNumber(): int
+    public function getColor(): string
     {
-        return $this->number;
+        return $this->color;
     }
 
     public function toPayload(): array
     {
         return [
-            'number' => $this->number,
+            'color' => $this->color,
         ];
     }
 
     public static function fromPayload(array $payload): self
     {
-        return new self($payload['number']);
+        return new self($payload['color']);
     }
 }

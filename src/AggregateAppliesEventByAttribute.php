@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Andreo\EventSauce\Aggregate;
 
-use InvalidArgumentException;
+use Andreo\EventSauce\Aggregate\Exception\InvalidArgumentException;
 use ReflectionObject;
 
 trait AggregateAppliesEventByAttribute
@@ -21,12 +21,12 @@ trait AggregateAppliesEventByAttribute
                 continue;
             }
             if (1 !== $method->getNumberOfRequiredParameters()) {
-                throw new InvalidArgumentException('Event sourcing handler method requires an one argument.');
+                throw InvalidArgumentException::eventHandlerOneArgument();
             }
 
             $parameter = $method->getParameters()[0];
             if (null === $parameter->getType()) {
-                throw new InvalidArgumentException('Event sourcing handler method requires an argument with event type.');
+                throw InvalidArgumentException::eventHandlerTypeArgument();
             }
 
             if ($event::class === $parameter->getType()->getName()) {

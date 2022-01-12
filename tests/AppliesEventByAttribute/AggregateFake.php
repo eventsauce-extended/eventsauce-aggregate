@@ -17,16 +17,34 @@ class AggregateFake implements AggregateRoot
         AggregateAppliesEventByAttribute::apply insteadof AggregateRootBehaviour;
     }
 
-    private int $incrementedNumber = 0;
+    private int $quantity = 0;
+
+    private string $color;
+
+    private string $size;
 
     #[EventSourcingHandler]
-    private function onAggregateNumberIncremented(AggregateNumberIncremented $event): void
+    private function onAggregateNumberIncremented(QuantityChanged $event): void
     {
-        $this->incrementedNumber = $event->getNumber();
+        $this->quantity = $event->getQuantity();
     }
 
-    public function getIncrementedNumber(): int
+    #[EventSourcingHandler]
+    private function onColorChanged($event): void
     {
-        return $this->incrementedNumber;
+        assert($event instanceof ColorChanged);
+
+        $this->color = $event->getColor();
+    }
+
+    #[EventSourcingHandler]
+    private function onSizeChanged(SizeChanged $event, int $foo): void
+    {
+        $this->size = $event->getSize();
+    }
+
+    public function getQuantity(): int
+    {
+        return $this->quantity;
     }
 }

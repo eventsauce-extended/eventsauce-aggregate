@@ -32,7 +32,7 @@ trait AggregateAppliesEventByAttribute
             if ($event::class === $parameter->getType()->getName()) {
                 $this->{$method->getName()}($event);
                 ++$this->aggregateRootVersion;
-                
+
                 break;
             }
         }

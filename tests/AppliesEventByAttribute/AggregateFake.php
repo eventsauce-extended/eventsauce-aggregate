@@ -2,14 +2,12 @@
 
 declare(strict_types=1);
 
-
 namespace Tests\AppliesEventByAttribute;
 
 use Andreo\EventSauce\Aggregate\AggregateAppliesEventByAttribute;
 use Andreo\EventSauce\Aggregate\EventSourcingHandler;
 use EventSauce\EventSourcing\AggregateRoot;
 use EventSauce\EventSourcing\AggregateRootBehaviour;
-
 
 class AggregateFake implements AggregateRoot
 {

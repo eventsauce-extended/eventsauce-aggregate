@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Tests\AppliesEventByAttribute;
 
 use EventSauce\EventSourcing\Serialization\SerializablePayload;

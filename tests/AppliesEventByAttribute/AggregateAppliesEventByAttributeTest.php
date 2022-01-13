@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Tests\AppliesEventByAttribute;
 
 use EventSauce\EventSourcing\AggregateRootId;
@@ -39,7 +38,7 @@ final class AggregateAppliesEventByAttributeTest extends AggregateRootTestCase
 
         $this->expectException(UnableToReconstituteAggregateRoot::class);
 
-        /** @var AggregateFake $aggregate */
+        /* @var AggregateFake $aggregate */
         $this->repository->retrieve($this->aggregateRootId);
     }
 
@@ -54,7 +53,7 @@ final class AggregateAppliesEventByAttributeTest extends AggregateRootTestCase
 
         $this->expectException(UnableToReconstituteAggregateRoot::class);
 
-        /** @var AggregateFake $aggregate */
+        /* @var AggregateFake $aggregate */
         $this->repository->retrieve($this->aggregateRootId);
     }
 

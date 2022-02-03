@@ -25,12 +25,12 @@ trait AggregateAppliesEventByAttribute
             }
 
             $parameter = $method->getParameters()[0];
-            if (null === $parameter->getType()) {
+            if (null === $type = $parameter->getType()) {
                 throw InvalidArgumentException::eventHandlerTypeArgument();
             }
 
-            if ($event::class === $parameter->getType()->getName()) {
-                $this->{$method->getName()}($event);
+            if ($event::class === $type->getName()) {
+                $method->invoke($this, $event);
                 ++$this->aggregateRootVersion;
 
                 break;

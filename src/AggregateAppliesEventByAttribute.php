@@ -33,7 +33,7 @@ trait AggregateAppliesEventByAttribute
                 $method->invoke($this, $event);
                 ++$this->aggregateRootVersion;
 
-                break;
+                return;
             }
         }
     }

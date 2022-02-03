@@ -16,8 +16,8 @@ trait AggregateAppliesEventByAttribute
         $reflection = new ReflectionObject($this);
 
         foreach ($reflection->getMethods() as $method) {
-            $attributes = $method->getAttributes(EventSourcingHandler::class)[0] ?? null;
-            if (null === $attributes) {
+            $attribute = $method->getAttributes(EventSourcingHandler::class)[0] ?? null;
+            if (null === $attribute) {
                 continue;
             }
             if (1 !== $method->getNumberOfRequiredParameters()) {

@@ -22,7 +22,7 @@ class AggregateFake implements AggregateRoot
     private string $size;
 
     #[EventSourcingHandler]
-    private function onAggregateNumberIncremented(QuantityChanged $event): void
+    private function onQuantityChanged(QuantityChanged $event): void
     {
         $this->quantity = $event->getQuantity();
     }

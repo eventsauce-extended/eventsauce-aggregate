@@ -22,7 +22,7 @@ class AggregateFake implements AggregateRoot
     private string $size;
 
     #[EventSourcingHandler]
-    private function onQuantityChanged(QuantityChanged $event): void
+    private function onQuantityChanged(DummyQuantityChanged $event): void
     {
         $this->quantity = $event->getQuantity();
     }
@@ -30,15 +30,16 @@ class AggregateFake implements AggregateRoot
     #[EventSourcingHandler]
     private function onColorChanged($event): void
     {
-        assert($event instanceof ColorChanged);
-
-        $this->color = $event->getColor();
     }
 
     #[EventSourcingHandler]
-    private function onSizeChanged(SizeChanged $event, int $foo): void
+    private function onSizeChanged(DummySizeChanged $event, int $foo): void
     {
-        $this->size = $event->getSize();
+    }
+
+    #[EventSourcingHandler]
+    private function onProductChanged(): void
+    {
     }
 
     public function getQuantity(): int

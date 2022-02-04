@@ -21,12 +21,12 @@ trait AggregateAppliesEventByAttribute
                 continue;
             }
             if (1 !== $method->getNumberOfRequiredParameters()) {
-                throw InvalidArgumentException::eventHandlerOneArgument();
+                throw InvalidArgumentException::eventHandlerOneArgument($method->getShortName());
             }
 
             $parameter = $method->getParameters()[0];
             if (null === $type = $parameter->getType()) {
-                throw InvalidArgumentException::eventHandlerTypeArgument();
+                throw InvalidArgumentException::eventHandlerTypeArgument($method->getShortName());
             }
 
             if ($event::class === $type->getName()) {

@@ -6,7 +6,7 @@ namespace Tests\AppliesEventByAttribute;
 
 use EventSauce\EventSourcing\Serialization\SerializablePayload;
 
-final class QuantityChanged implements SerializablePayload
+final class DummyQuantityChanged implements SerializablePayload
 {
     private int $quantity;
 

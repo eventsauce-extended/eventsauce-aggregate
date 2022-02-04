@@ -8,13 +8,13 @@ use InvalidArgumentException as BaseInvalidArgumentException;
 
 final class InvalidArgumentException extends BaseInvalidArgumentException
 {
-    public static function eventHandlerOneArgument(): self
+    public static function eventHandlerOneArgument(string $method): self
     {
-        return new self('Event sourcing handler method requires an one argument.');
+        return new self(sprintf('Event sourcing handler method "%s" requires an one argument.', $method));
     }
 
-    public static function eventHandlerTypeArgument(): self
+    public static function eventHandlerTypeArgument(string $method): self
     {
-        return new self('Event sourcing handler method requires an argument with event type.');
+        return new self(sprintf('Event sourcing handler method "%s" requires an argument with event type.', $method));
     }
 }

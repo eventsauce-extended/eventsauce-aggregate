@@ -13,12 +13,12 @@ final class AggregateAppliesEventByAttributeTest extends AggregateRootTestCase
     /**
      * @test
      */
-    public function event_applied(): void
+    public function should_applied_given_events(): void
     {
         $this->given(
-            new QuantityChanged(1),
-            new QuantityChanged(2),
-            new QuantityChanged(3),
+            new DummyQuantityChanged(1),
+            new DummyQuantityChanged(2),
+            new DummyQuantityChanged(3),
         );
 
         /** @var AggregateFake $aggregate */
@@ -30,10 +30,10 @@ final class AggregateAppliesEventByAttributeTest extends AggregateRootTestCase
     /**
      * @test
      */
-    public function untyped_argument_throws_an_error(): void
+    public function should_throw_exception_if_event_handler_argument_has_not_type(): void
     {
         $this->given(
-            new ColorChanged('red'),
+            new DummyColorChanged(),
         );
 
         $this->expectException(UnableToReconstituteAggregateRoot::class);
@@ -45,10 +45,25 @@ final class AggregateAppliesEventByAttributeTest extends AggregateRootTestCase
     /**
      * @test
      */
-    public function many_argument_throws_an_error(): void
+    public function should_throw_exception_if_event_handler_has_many_argument(): void
     {
         $this->given(
-            new SizeChanged('red'),
+            new DummySizeChanged(),
+        );
+
+        $this->expectException(UnableToReconstituteAggregateRoot::class);
+
+        /* @var AggregateFake $aggregate */
+        $this->repository->retrieve($this->aggregateRootId);
+    }
+
+    /**
+     * @test
+     */
+    public function should_throw_exception_if_event_handler_not_has_argument(): void
+    {
+        $this->given(
+            new DummyProductChanged(),
         );
 
         $this->expectException(UnableToReconstituteAggregateRoot::class);

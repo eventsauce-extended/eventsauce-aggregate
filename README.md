@@ -8,7 +8,7 @@ Extended aggregate components of the EventSauce
 By default, EventSauce aggregate events based on method name 
 [convention](https://eventsauce.io/docs/event-sourcing/create-an-aggregate-root/)
 apply{EventClassName} 
-This library enables event application based on
+.This library enables event application based on
 a dedicated attribute, not based on the method name.
 
 #### Usage

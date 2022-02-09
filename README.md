@@ -1,7 +1,16 @@
-# eventsauce-aggregate
+## eventsauce-aggregate
 
 Extended aggregate components of the EventSauce
 
+
+### Installation
+
+```bash
+composer require andreo/eventsauce-aggregate
+```
+### Requirements
+
+- PHP ^8.1
 
 ### Apply event by attribute
 

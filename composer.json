@@ -1,6 +1,6 @@
 {
     "name": "andreo/eventsauce-aggregate",
-    "description": "Extended aggregate components of the EventSauce.",
+    "description": "Extended aggregate components for EventSauce.",
     "keywords": [
         "eventsauce",
         "components",

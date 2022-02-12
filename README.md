@@ -1,6 +1,6 @@
 ## eventsauce-aggregate
 
-Extended aggregate components of the EventSauce
+Extended aggregate components for EventSauce
 
 
 ### Installation
@@ -23,7 +23,6 @@ a dedicated attribute, not based on the method name.
 #### Usage
 
 ```php
-
 use EventSauce\EventSourcing\AggregateRoot;
 use EventSauce\EventSourcing\AggregateRootBehaviour;
 use Andreo\EventSauce\Aggregate\AggregateAppliesEventByAttribute;

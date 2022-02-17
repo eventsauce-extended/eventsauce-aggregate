@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace Tests\AppliesEventByAttribute;
 
-use Andreo\EventSauce\Aggregate\AggregateAppliesEventByAttribute;
+use Andreo\EventSauce\Aggregate\AggregateRootBehaviourWithAppliesByAttribute;
 use Andreo\EventSauce\Aggregate\EventSourcingHandler;
 use EventSauce\EventSourcing\AggregateRoot;
-use EventSauce\EventSourcing\AggregateRootBehaviour;
 
 class AggregateFake implements AggregateRoot
 {
-    use AggregateRootBehaviour, AggregateAppliesEventByAttribute {
-        AggregateAppliesEventByAttribute::apply insteadof AggregateRootBehaviour;
-    }
+    use AggregateRootBehaviourWithAppliesByAttribute;
 
     private int $quantity = 0;
 

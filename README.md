@@ -24,15 +24,12 @@ a dedicated attribute, not based on the method name.
 
 ```php
 use EventSauce\EventSourcing\AggregateRoot;
-use EventSauce\EventSourcing\AggregateRootBehaviour;
-use Andreo\EventSauce\Aggregate\AggregateAppliesEventByAttribute;
 use Andreo\EventSauce\Aggregate\EventSourcingHandler;
+use Andreo\EventSauce\Aggregate\AggregateRootBehaviourWithAppliesByAttribute;
 
 final class SomeAggregate implements AggregateRoot
 {
-    use AggregateRootBehaviour, AggregateAppliesEventByAttribute {
-        AggregateAppliesEventByAttribute::apply insteadof AggregateRootBehaviour;
-    }
+    use AggregateRootBehaviourWithAppliesByAttribute;
     
     #[EventSourcingHandler]
     public function onInitiated(ProcessWasInitiated $event): void

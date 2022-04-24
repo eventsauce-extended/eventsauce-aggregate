@@ -27,7 +27,7 @@ final class DummyQuantityChanged implements SerializablePayload
         ];
     }
 
-    public static function fromPayload(array $payload): self
+    public static function fromPayload(array $payload): static
     {
         return new self($payload['quantity']);
     }

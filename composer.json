@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "eventsauce/eventsauce": "^2.0"
     },
     "require-dev": {
         "eventsauce/test-utilities": "^2.0.0",

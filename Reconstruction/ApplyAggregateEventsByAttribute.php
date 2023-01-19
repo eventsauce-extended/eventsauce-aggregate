@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Andreo\EventSauce\Aggregate;
+namespace Andreo\EventSauce\Aggregate\Reconstruction;
 
-use Andreo\EventSauce\Aggregate\Exception\InvalidArgumentException;
 use ReflectionObject;
 
-trait AggregateAppliesEventByAttribute
+trait ApplyAggregateEventsByAttribute
 {
     private int $aggregateRootVersion = 0;
 
@@ -21,12 +20,12 @@ trait AggregateAppliesEventByAttribute
                 continue;
             }
             if (1 !== $method->getNumberOfRequiredParameters()) {
-                throw InvalidArgumentException::eventHandlerOneArgument($method->getShortName());
+                throw EventSourcingHandlerArgumentException::eventHandlerRequireOneArgument($method->getShortName());
             }
 
             $parameter = $method->getParameters()[0];
             if (null === $type = $parameter->getType()) {
-                throw InvalidArgumentException::eventHandlerTypeArgument($method->getShortName());
+                throw EventSourcingHandlerArgumentException::noEventHandlerArgumentType($method->getShortName());
             }
 
             if ($event::class === $type->getName()) {

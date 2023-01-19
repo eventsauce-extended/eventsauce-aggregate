@@ -2,13 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Tests\AppliesEventByAttribute;
+namespace Andreo\EventSauce\Aggregate\Tests;
 
+use Andreo\EventSauce\Aggregate\Tests\Doubles\AggregateFake;
+use Andreo\EventSauce\Aggregate\Tests\Doubles\DummyAggregateId;
+use Andreo\EventSauce\Aggregate\Tests\Doubles\DummyColorChanged;
+use Andreo\EventSauce\Aggregate\Tests\Doubles\DummyProductChanged;
+use Andreo\EventSauce\Aggregate\Tests\Doubles\DummyQuantityChanged;
+use Andreo\EventSauce\Aggregate\Tests\Doubles\DummySizeChanged;
 use EventSauce\EventSourcing\AggregateRootId;
 use EventSauce\EventSourcing\TestUtilities\AggregateRootTestCase;
 use EventSauce\EventSourcing\UnableToReconstituteAggregateRoot;
 
-final class AggregateAppliesEventByAttributeTest extends AggregateRootTestCase
+final class ApplyAggregateEventsByAttributeTest extends AggregateRootTestCase
 {
     /**
      * @test

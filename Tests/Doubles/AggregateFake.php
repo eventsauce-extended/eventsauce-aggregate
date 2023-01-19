@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Tests\AppliesEventByAttribute;
+namespace Andreo\EventSauce\Aggregate\Tests\Doubles;
 
-use Andreo\EventSauce\Aggregate\AggregateRootBehaviourWithAppliesByAttribute;
-use Andreo\EventSauce\Aggregate\EventSourcingHandler;
+use Andreo\EventSauce\Aggregate\Reconstruction\AggregateRootBehaviourWithAppliesEventsByAttribute;
+use Andreo\EventSauce\Aggregate\Reconstruction\EventSourcingHandler;
 use EventSauce\EventSourcing\AggregateRoot;
 
 class AggregateFake implements AggregateRoot
 {
-    use AggregateRootBehaviourWithAppliesByAttribute;
+    use AggregateRootBehaviourWithAppliesEventsByAttribute;
 
     private int $quantity = 0;
 

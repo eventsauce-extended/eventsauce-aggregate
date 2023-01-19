@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\AppliesEventByAttribute;
+namespace Andreo\EventSauce\Aggregate\Tests\Doubles;
 
 use EventSauce\EventSourcing\AggregateRootId;
 use Ramsey\Uuid\Uuid;
 
-class DummyAggregateId implements AggregateRootId
+final readonly class DummyAggregateId implements AggregateRootId
 {
     private function __construct(private string $id)
     {

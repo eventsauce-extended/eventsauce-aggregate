@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\AppliesEventByAttribute;
+namespace Andreo\EventSauce\Aggregate\Tests\Doubles;
 
 use EventSauce\EventSourcing\Serialization\SerializablePayload;
 

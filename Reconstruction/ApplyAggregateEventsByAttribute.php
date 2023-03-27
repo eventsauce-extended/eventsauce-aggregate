@@ -30,10 +30,10 @@ trait ApplyAggregateEventsByAttribute
 
             if ($event::class === $type->getName()) {
                 $method->invoke($this, $event);
-                ++$this->aggregateRootVersion;
-
-                return;
+                break;
             }
         }
+
+        ++$this->aggregateRootVersion;
     }
 }
